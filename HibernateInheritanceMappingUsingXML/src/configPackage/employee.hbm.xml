@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+
+	<class name = "tablePerHierarchy.Employee" table = "emp123" discriminator-value = "emp">
+	<id name = "id">
+	<generator class = "increment" />
+	</id>
+	<discriminator column = "class_type" type = "string"> </discriminator>
+	<property name = "name" />
+	
+	<subclass name = "tablePerHierarchy.ContractEmployee" discriminator-value = "contEmp">
+	<property name = "noOfYears" />
+	<property name = "pay" />
+	</subclass>
+	
+	<subclass name = "tablePerHierarchy.RegularEmployee" discriminator-value = "regEmp">
+	<property name = "salary" />
+	<property name = "bonus" />
+	</subclass>
+	
+	<subclass name = "tablePerHierarchy.ExtraEmpoyee" discriminator-value = "extraEmp">
+	<property name = "age" />
+	<property name = "year" />
+	</subclass>
+	
+	</class>
+
+</hibernate-mapping>

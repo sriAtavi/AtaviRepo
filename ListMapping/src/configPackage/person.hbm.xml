@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+<class name = "persistantPackage.Person" table ="person123">
+<id name = "id">
+<generator class = "increment"> </generator>
+</id>
+<property name = "name" />
+
+<bag name = "aliases" table = "alias">
+<key column = "qid" />
+
+<element column = "aliases" type = "string"/>
+</bag>
+</class>
+</hibernate-mapping>
